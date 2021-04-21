@@ -1,0 +1,12 @@
+build
+
+
+bower_components
+node_modules
+.vscode
+.publish
+*.log
+*.sublime-*
+*.rar
+*.zip
+.idea
