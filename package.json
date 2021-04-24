@@ -7,6 +7,9 @@
     "buld:dev": "gulp build",
     "build:prod": "gulp build --prod"
   },
+  "lint staged": {
+    "*.scss": "stylelint"
+  },
   "keywords": [
     "gulp",
     "js",
@@ -37,6 +40,11 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
+    "stylelint": "^13.12.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
