@@ -1,20 +1,7 @@
-@import 'test';
-
-body {
-  background-color: red;
-  display: flex;
+.js-focus-visible :focus:not(.focus-visible) {
+  box-shadow: none;
 }
 
-@media (max-width: 600px) {
-  body {
-    background-color: red;
-    display: flex;
-  }
-}
-
-@media (max-width: 600px) {
-  div {
-    background-color: red;
-    display: flex;
-  }
+.test {
+  height: 100px;
 }
