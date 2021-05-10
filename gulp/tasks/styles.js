@@ -6,18 +6,24 @@ import gcmq from 'gulp-group-css-media-queries';
 import cleanCSS from 'gulp-clean-css';
 import gulpif from 'gulp-if';
 import rename from 'gulp-rename';
+import smartGrid from 'smart-grid';
+import importFresh from 'import-fresh';
+import sassGlob from 'gulp-sass-glob';
 import config from '../config';
 
-export const sassBuild = () =>
+const SMART_GRID_CONFIG_NAME = "smart-grid-conifg.js";
+
+const sassBuild = () =>
   gulp
     .src(`${config.src.sass}/**/main.scss`, { sourscemaps: config.siDev})
     .pipe(plumber())
+    .pipe(sassGlob())
     .pipe(sass({
+      includePaths: ['./node_modules'],
       outputStyle: "expanded"
     }))
     .pipe(gulpif(config.isProd, gcmq()))
     .pipe(gulpif(config.isProd, autoprefixer()))
-    .pipe(gulp.dest(config.dest.css))
     .pipe(gulpif(config.isProd, cleanCSS({ level: 2 })))
     .pipe(
       rename({
@@ -26,5 +32,18 @@ export const sassBuild = () =>
     )
     .pipe(gulp.dest(config.dest.css, {sourcemaps: config.isDev }));
 
-export const sassWatch = () =>
+const smartGridBuild = (callback) => {
+
+  const smartGridConfig = importFresh(`../../${SMART_GRID_CONFIG_NAME}`);
+      smartGrid(`${config.src.sass}/generated`, smartGridConfig);
+
+      callback();
+    };
+
+export const stylesBuild = gulp.series(smartGridBuild, sassBuild)
+
+export const stylesWatch = () => {
   gulp.watch(`${config.src.sass}/**/*.scss`, sassBuild);
+  gulp.watch(`./${SMART_GRID_CONFIG_NAME}`, smartGridBuild);
+}
+

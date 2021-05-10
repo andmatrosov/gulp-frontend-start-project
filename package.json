@@ -29,7 +29,6 @@
     "browser-sync": "^2.26.14",
     "browserify": "^17.0.0",
     "del": "^6.0.0",
-    "focus-visible": "^5.2.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-changed": "^4.0.2",
@@ -41,11 +40,13 @@
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-uglify": "^3.0.2",
     "imagemin-pngquant": "^9.0.2",
     "imagemin-webp": "^6.0.0",
+    "import-fresh": "^3.3.0",
     "stylelint": "^13.12.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^21.0.0",
@@ -55,5 +56,9 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "focus-visible": "^5.2.0",
+    "normalize.css": "^8.0.1",
+    "smart-grid": "^2.1.2"
+  }
 }
